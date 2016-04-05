@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Patron : Patron - Access Control as a Service for OpenStack">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Patron</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hsluoyz/patron">View on GitHub</a>
+
+          <h1 id="project_title">Patron</h1>
+          <h2 id="project_tagline">Patron - Access Control as a Service for OpenStack</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hsluoyz/patron/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hsluoyz/patron/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="patron" class="anchor" href="#patron" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Patron</h1>
+
+<hr>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Patron is an access control service for OpenStack cloud. It controls the access to RESTful APIs
+exposed by other OpenStack services based on policy enforcement. The goal is to make access controls
+of other services easier and more powerful.</p>
+
+<p>Patron is comprised of two parts: 
+the <code>patron service</code> and a request filter called <code>Access Endpoint Middleware (AEM)</code>:</p>
+
+<ul>
+<li><p><code>patron service</code> stores the access control policies of other OpenStack services and provides access decisions based on those policies.</p></li>
+<li><p><code>AEM</code> is to be installed on all other OpenStack services that needs access control. The requests to those services are first mediated by the patron service, who makes a decision (<code>YES</code> or <code>NO</code>) based on policy and returns the result back to AEM. If patron's answer is <code>YES</code>, AEM permits this request, otherwise the request is going to be denied.</p></li>
+</ul>
+
+<p>Patron provides RESTful APIs to users so that they can view and update their
+access control policies to the cloud. Patron improves the original <code>policy.json</code>
+access control mechanism by allowing an individual user to have their own policy.
+With the help of patron, the original access control hooks inside other services
+can be removed.</p>
+
+<p>Patron is designed to be capable of handling access control missions for many other
+services. Currently supported services are: <code>nova</code>, <code>glance</code>, <code>neutron</code>, <code>cinder</code>, <code>heat</code> and
+<code>ceilometer</code>. More service' supports will be added in the future.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Patron maintained by <a href="https://github.com/hsluoyz">hsluoyz</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
